@@ -1,5 +1,6 @@
 package com.example.elasticsearch.repository.entity;
 
+import com.example.elasticsearch.config.EmptyMark;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -19,12 +20,15 @@ public class Order {
     private String orderNo;
 
     @Field(type = FieldType.Float)
-    private Float validBetAmount;
+    @EmptyMark
+    private Float validBetAmount = 0f;
 
     @Field(type = FieldType.Float)
-    private Float BetAmount;
+    @EmptyMark
+    private Float BetAmount = 0f;
 
     @Field(type = FieldType.Float)
+    @EmptyMark
     private Float profitAmount = 0f;
 
     @Field(type = FieldType.Text)
